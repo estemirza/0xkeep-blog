@@ -1,0 +1,168 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-void: #030305;
+  --color-carbon: #0A0A0A;
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-chakra: "Chakra Petch", sans-serif;
+  --tracking-tightest: -0.04em;
+}
+
+body {
+    background-color: var(--color-void);
+    color: #FFFFFF;
+    overflow-x: hidden;
+}
+
+/* The Grid Overlay */
+.bg-grid {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background-size: 50px 50px;
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+    -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* Ambient Nebula Orbs */
+.orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: -1;
+    opacity: 0.25;
+    pointer-events: none;
+}
+.orb-aurora {
+    width: 50vw; height: 50vw;
+    background: linear-gradient(135deg, #7C3AED, #2563EB);
+    top: -10%; left: -10%;
+    animation: drift 20s infinite alternate ease-in-out;
+}
+.orb-plasma {
+    width: 40vw; height: 40vw;
+    background: linear-gradient(135deg, #C026D3, #0891B2);
+    bottom: -10%; right: -10%;
+    animation: drift 25s infinite alternate-reverse ease-in-out;
+}
+@keyframes drift {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(10%, 15%) scale(1.1); }
+}
+
+/* Glassmorphism Classes */
+.glass-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.06), transparent 40%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.glass-card:hover::before {
+    opacity: 1;
+}
+
+.glass-card:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: inset 0 0 30px rgba(124, 58, 237, 0.05), 0 10px 40px rgba(0,0,0,0.5);
+    transform: translateY(-2px);
+}
+
+/* Logo Glow */
+.logo-glow {
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.4));
+    transition: filter 0.3s;
+}
+.logo-glow:hover {
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8));
+}
+
+/* Looping Light Button */
+.btn-primary {
+    position: relative;
+    background: #FFFFFF;
+    color: #000000;
+    border-radius: 9999px;
+    padding: 2px;
+    z-index: 1;
+    box-shadow: 0 0 15px rgba(255,255,255,0.2);
+    transition: all 0.3s;
+    overflow: hidden;
+    display: inline-flex;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 0 30px rgba(124, 58, 237, 0.4);
+    transform: translateY(-1px);
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: -50%;
+    background: conic-gradient(from 0deg, transparent 70%, #7C3AED 80%, #2563EB 90%, transparent 100%);
+    animation: spin 2.5s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: -1;
+}
+
+.btn-primary:hover::before {
+    opacity: 1;
+}
+
+.btn-inner {
+    background: #FFFFFF;
+    border-radius: 9999px;
+    padding: 0.75rem 2rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover .btn-inner {
+    background: #f4f4f5;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Animations */
+.fade-in-up {
+    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+}

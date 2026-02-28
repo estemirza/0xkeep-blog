@@ -1,0 +1,206 @@
+---
+import '../styles/global.css';
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{title ? `${title}` : '0xKeep Blog'}</title>
+    <meta name="description" content={description || "The official blog for 0xKeep Protocol."} />
+    
+    <link rel="icon" type="image/svg+xml" href="/icon.svg">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+</head>
+
+<body class="antialiased selection:bg-purple-500/30 selection:text-white">
+
+    <!-- Ambient Backgrounds -->
+    <div class="bg-grid"></div>
+    <div class="orb orb-aurora"></div>
+    <div class="orb orb-plasma"></div>
+
+    <!-- Navigation Layer -->
+    <nav class="!fixed top-0 left-0 w-full z-50 glass-card !overflow-visible !rounded-none !border-t-0 !border-l-0 !border-r-0 !border-b-white/5 py-4 px-6 md:px-12 flex justify-between items-center">
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+            <svg class="logo-glow w-8 h-8" viewBox="0 0 275 275" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M123.238 5.85778C131.048 -1.95257 143.711 -1.95262 151.522 5.85778L199.964 54.3002L181.408 72.8578C169.066 64.5587 154.207 59.7154 138.216 59.7152C95.4142 59.7152 60.7162 94.4131 60.7162 137.215C60.7162 180.017 95.4142 214.715 138.216 214.715C154.034 214.715 168.745 209.975 181.007 201.839L199.795 220.627L151.522 268.902C143.711 276.712 131.048 276.712 123.238 268.902L5.85782 151.522C-1.95261 143.711 -1.95261 131.048 5.85782 123.238L123.238 5.85778ZM268.902 123.238C276.712 131.048 276.712 143.711 268.902 151.522L221.008 199.414L202.341 180.747C210.781 168.339 215.716 153.353 215.716 137.215C215.716 121.249 210.886 106.412 202.611 94.0814L221.178 75.514L268.902 123.238ZM165.781 186.613C157.625 191.173 148.224 193.774 138.216 193.774C128.058 193.774 118.525 191.095 110.286 186.407L137.93 158.762L165.781 186.613ZM187.407 109.286C192.095 117.525 194.775 127.057 194.775 137.215C194.775 147.548 192.002 157.233 187.163 165.569L159.143 137.549L187.407 109.286ZM116.717 137.549L89.059 165.207C84.3487 156.954 81.6566 147.399 81.6566 137.215C81.6566 127.207 84.2558 117.805 88.8168 109.649L116.717 137.549ZM137.716 122.715C146.276 122.716 153.216 129.431 153.216 137.715C153.216 145.999 146.276 152.715 137.716 152.715C129.156 152.715 122.216 145.999 122.216 137.715C122.216 129.431 129.156 122.715 137.716 122.715ZM138.216 80.6566C148.399 80.6568 157.954 83.3481 166.207 88.058L137.93 116.336L109.861 88.267C118.197 83.4277 127.883 80.6566 138.216 80.6566Z" fill="white"/>
+            </svg>
+            <span class="font-chakra font-bold text-xl tracking-wider group-hover:text-purple-400 transition-colors">0xKeep Blog</span>
+        </a>
+        
+        <!-- Desktop Nav Links (Hidden on Mobile) -->
+        <div class="hidden md:flex gap-8 items-center text-zinc-400 font-mono text-xs uppercase tracking-widest">
+            <a href="/tags/news" class="hover:text-white transition">News</a>
+            <a href="/tags/security" class="hover:text-white transition">Security</a>
+            <a href="/tags/research" class="hover:text-white transition">Research</a>
+            
+            <div class="relative group flex items-center h-full">
+                <button class="hover:text-white transition flex items-center gap-1 cursor-default uppercase font-mono text-xs tracking-widest">
+                    Categories
+                    <svg class="w-4 h-4 text-zinc-500 group-hover:text-white group-hover:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                
+                <div class="absolute top-full pt-6 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 w-56 z-50">
+                    <div class="glass-card flex flex-col p-2 bg-[#030305]/95 shadow-2xl border border-white/10 !rounded-xl">
+                        <!-- UPDATED TAG LINKS -->
+                        <a href="/tags/projects" class="px-4 py-3 hover:bg-white/10 rounded-lg text-zinc-300 hover:text-white transition font-mono text-xs uppercase tracking-widest">Projects</a>
+                        <a href="/tags/guides" class="px-4 py-3 hover:bg-white/10 rounded-lg text-zinc-300 hover:text-white transition font-mono text-xs uppercase tracking-widest">Guides</a>
+                        <a href="/tags/developers" class="px-4 py-3 hover:bg-white/10 rounded-lg text-zinc-300 hover:text-white transition font-mono text-xs uppercase tracking-widest">Developers</a>
+                        <a href="/tags/updates" class="px-4 py-3 hover:bg-white/10 rounded-lg text-zinc-300 hover:text-white transition font-mono text-xs uppercase tracking-widest">Updates</a>
+                        <a href="/tags/cases" class="px-4 py-3 hover:bg-white/10 rounded-lg text-zinc-300 hover:text-white transition font-mono text-xs uppercase tracking-widest">Cases</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Launch App Button (Hidden on Mobile) -->
+        <div class="hidden md:block">
+            <a href="https://app.0x-keep.xyz" target="_blank" class="btn-primary group">
+                <span class="btn-inner">Launch App</span>
+            </a>
+        </div>
+
+        <!-- Mobile Menu Hamburger Button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-zinc-400 hover:text-white transition focus:outline-none z-50">
+            <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+            <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu Overlay (Hidden on Desktop) -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-[#030305]/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 md:hidden overflow-y-auto pt-24 px-6 pb-8 flex flex-col">
+        <div class="flex flex-col gap-6 font-mono text-sm uppercase tracking-widest text-zinc-400 mt-4">
+            <a href="/tags/news" class="hover:text-white transition">News</a>
+            <a href="/tags/security" class="hover:text-white transition">Security</a>
+            <a href="/tags/research" class="hover:text-white transition">Research</a>
+            
+            <div class="w-full h-px bg-white/10 my-2"></div>
+            
+            <div class="text-zinc-500 mb-1">Categories</div>
+            <div class="flex flex-col gap-5 pl-4 border-l border-white/10">
+                <!-- UPDATED MOBILE TAG LINKS -->
+                <a href="/tags/projects" class="hover:text-white transition">Projects</a>
+                <a href="/tags/guides" class="hover:text-white transition">Guides</a>
+                <a href="/tags/developers" class="hover:text-white transition">Developers</a>
+                <a href="/tags/updates" class="hover:text-white transition">Updates</a>
+                <a href="/tags/cases" class="hover:text-white transition">Cases</a>
+            </div>
+            
+            <div class="w-full h-px bg-white/10 my-2"></div>
+            
+            <a href="https://app.0x-keep.xyz" target="_blank" class="btn-primary group self-start mt-2">
+                <span class="btn-inner">Launch App</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content Area where your Obsidian Markdown gets injected -->
+    <main class="relative z-10 pt-40 pb-20 px-6 md:px-12 max-w-7xl w-full mx-auto min-h-[80vh]">
+        <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-16 px-6 border-t border-white/5 text-center flex flex-col items-center justify-center relative z-10 bg-void gap-8 mt-20">
+        <!-- Footer Logo -->
+        <svg class="logo-glow w-10 h-10 opacity-70" viewBox="0 0 275 275" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M123.238 5.85778C131.048 -1.95257 143.711 -1.95262 151.522 5.85778L199.964 54.3002L181.408 72.8578C169.066 64.5587 154.207 59.7154 138.216 59.7152C95.4142 59.7152 60.7162 94.4131 60.7162 137.215C60.7162 180.017 95.4142 214.715 138.216 214.715C154.034 214.715 168.745 209.975 181.007 201.839L199.795 220.627L151.522 268.902C143.711 276.712 131.048 276.712 123.238 268.902L5.85782 151.522C-1.95261 143.711 -1.95261 131.048 5.85782 123.238L123.238 5.85778ZM268.902 123.238C276.712 131.048 276.712 143.711 268.902 151.522L221.008 199.414L202.341 180.747C210.781 168.339 215.716 153.353 215.716 137.215C215.716 121.249 210.886 106.412 202.611 94.0814L221.178 75.514L268.902 123.238ZM165.781 186.613C157.625 191.173 148.224 193.774 138.216 193.774C128.058 193.774 118.525 191.095 110.286 186.407L137.93 158.762L165.781 186.613ZM187.407 109.286C192.095 117.525 194.775 127.057 194.775 137.215C194.775 147.548 192.002 157.233 187.163 165.569L159.143 137.549L187.407 109.286ZM116.717 137.549L89.059 165.207C84.3487 156.954 81.6566 147.399 81.6566 137.215C81.6566 127.207 84.2558 117.805 88.8168 109.649L116.717 137.549ZM137.716 122.715C146.276 122.716 153.216 129.431 153.216 137.715C153.216 145.999 146.276 152.715 137.716 152.715C129.156 152.715 122.216 145.999 122.216 137.715C122.216 129.431 129.156 122.715 137.716 122.715ZM138.216 80.6566C148.399 80.6568 157.954 83.3481 166.207 88.058L137.93 116.336L109.861 88.267C118.197 83.4277 127.883 80.6566 138.216 80.6566Z" fill="white"/>
+        </svg>
+
+        <!-- Footer Navigation -->
+        <div class="flex flex-wrap justify-center gap-6 items-center text-zinc-400 font-mono text-xs uppercase tracking-widest">
+            <a href="https://0x-keep.xyz/docs.html" target="_blank" class="hover:text-white transition">Docs</a>
+            <a href="https://0x-keep.xyz/terms.html" target="_blank" class="hover:text-white transition">Terms</a>
+            <a href="https://0x-keep.xyz/privacy.html" target="_blank" class="hover:text-white transition">Privacy</a>
+            <a href="https://0x-keep.xyz" target="_blank" class="hover:text-white transition">Main Site</a>
+        </div>
+
+        <!-- Social Icons -->
+        <div class="flex gap-6 items-center">
+            <!-- X (Twitter) -->
+            <a href="https://x.com/0xkeep_official" target="_blank" class="text-zinc-500 hover:text-white transition-colors duration-300" aria-label="X (Twitter)">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+            </a>
+            
+            <!-- Discord -->
+            <a href="https://discord.gg/tUjQV8yH" target="_blank" class="text-zinc-500 hover:text-white transition-colors duration-300" aria-label="Discord">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/>
+                </svg>
+            </a>
+
+            <!-- Email -->
+            <a href="mailto:contact@0x-keep.xyz" target="_blank" class="text-zinc-500 hover:text-white transition-colors duration-300" aria-label="Email">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+            </a>
+        </div>
+
+        <p class="font-mono text-xs text-zinc-600 uppercase tracking-widest mt-2">
+            © 2026 0xKeep Protocol. Time is the only admin.
+        </p>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Glass Card Hover Glow
+            document.querySelectorAll('.glass-card').forEach(card => {
+                const htmlCard = card as HTMLElement;
+                htmlCard.addEventListener('mousemove', (e: MouseEvent) => {
+                    const rect = htmlCard.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    htmlCard.style.setProperty('--mouse-x', `${x}px`);
+                    htmlCard.style.setProperty('--mouse-y', `${y}px`);
+                });
+            });
+
+            // Mobile Menu Toggle Logic
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerIcon = document.getElementById('hamburger-icon');
+            const closeIcon = document.getElementById('close-icon');
+
+            if (mobileMenuBtn && mobileMenu && hamburgerIcon && closeIcon) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    // Check if menu is currently hidden off-screen
+                    const isOpen = !mobileMenu.classList.contains('translate-x-full');
+                    
+                    if (isOpen) {
+                        // Close it
+                        mobileMenu.classList.add('translate-x-full');
+                        hamburgerIcon.classList.remove('hidden');
+                        closeIcon.classList.add('hidden');
+                        document.body.style.overflow = ''; // Unlock background scrolling
+                    } else {
+                        // Open it
+                        mobileMenu.classList.remove('translate-x-full');
+                        hamburgerIcon.classList.add('hidden');
+                        closeIcon.classList.remove('hidden');
+                        document.body.style.overflow = 'hidden'; // Lock background scrolling
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

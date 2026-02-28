@@ -1,0 +1,135 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// 1. Grab all Markdown files
+const allPosts = await Astro.glob('./posts/*.md');
+
+// 2. Sort them by date (Newest first)
+const sortedPosts = allPosts.sort((a, b) => {
+    return new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf();
+});
+
+// 3. Extract the "News" posts for the right sidebar (Max 3)
+const newsPosts = sortedPosts.filter(post => post.frontmatter.tags && post.frontmatter.tags.includes('News')).slice(0, 3);
+const newsPostUrls = newsPosts.map(post => post.url);
+
+// 4. Extract the "Recent" posts (excluding the ones already showing in News)
+const recentPosts = sortedPosts.filter(post => !newsPostUrls.includes(post.url));
+
+// 5. Separate the 1 big featured post, and the 3 smaller sub-posts
+const featuredPost = recentPosts[0];
+const subPosts = recentPosts.slice(1, 4);
+---
+
+<Layout title="0xKeep | Blog">
+    
+    <!-- Hero Section -->
+    <div class="text-center mb-16 fade-in-up">
+        <h1 class="text-4xl md:text-6xl font-light tracking-tight mb-4 text-white">
+            Protocol <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 font-medium">Research & Updates</span>
+        </h1>
+        <p class="text-base md:text-lg text-zinc-400 font-light max-w-2xl mx-auto leading-relaxed">
+            Deep dives into trustless liquidity, protocol upgrades, and Web3 security.
+        </p>
+    </div>
+
+    <!-- Editorial Layout Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 fade-in-up delay-100">
+        
+        <!-- LEFT COLUMN: Recent Articles (8 of 12 columns) -->
+        <div class="lg:col-span-8 flex flex-col gap-6">
+            <h2 class="font-mono text-sm text-zinc-400 uppercase tracking-widest border-b border-white/5 pb-3">
+                Recent Articles
+            </h2>
+
+            <!-- Big Featured Card -->
+            {featuredPost ? (
+                <a href={featuredPost.url} class="glass-card p-8 md:p-10 group flex flex-col justify-end  hover:border-purple-500/30 transition-all duration-300 relative overflow-hidden">
+                    <div class="relative z-10">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            {featuredPost.frontmatter.tags && featuredPost.frontmatter.tags.map((tag: string) => (
+                                <span class="font-mono text-[10px] text-purple-400 uppercase tracking-widest border border-purple-500/20 rounded px-2 py-1 bg-purple-500/10 backdrop-blur-md">
+                                    {tag}
+                                </span>
+                            ))}
+                        </div>
+                        <h3 class="text-3xl md:text-4xl font-medium mb-4 text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-blue-400 transition-all duration-300">
+                            {featuredPost.frontmatter.title}
+                        </h3>
+                        <p class="text-zinc-300 text-base md:text-lg max-w-2xl mb-4 line-clamp-2">
+                            {featuredPost.frontmatter.description}
+                        </p>
+                        <div class="font-mono text-xs text-zinc-500 mt-4">
+                            {new Date(featuredPost.frontmatter.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                        </div>
+                    </div>
+                    <!-- Ambient Glow inside the big card -->
+                    <div class="absolute bottom-0 right-0 w-64 h-64 bg-purple-500/10 blur-3xl rounded-full group-hover:bg-purple-500/20 transition-all duration-500 pointer-events-none"></div>
+                </a>
+            ) : (
+                <div class="glass-card p-10 text-center text-zinc-500 italic">No recent articles found.</div>
+            )}
+
+            <!-- Row of 3 Smaller Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {subPosts.map((post) => (
+                    <a href={post.url} class="glass-card p-6 group flex flex-col h-full hover:border-purple-500/30 transition-all duration-300 min-h-[180px]">
+                        <div class="flex flex-wrap gap-2 mb-3">
+                            {post.frontmatter.tags && post.frontmatter.tags.slice(0, 1).map((tag: string) => (
+                                <span class="font-mono text-[9px] text-blue-400 uppercase tracking-widest">
+                                    {tag}
+                                </span>
+                            ))}
+                        </div>
+                        <h3 class="text-lg font-medium mb-3 text-white group-hover:text-purple-300 transition-colors line-clamp-3">
+                            {post.frontmatter.title}
+                        </h3>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">
+                        {post.frontmatter.description}
+                        </p>
+                        <div class="font-mono text-xs text-zinc-600 mt-auto pt-4">
+                            {new Date(post.frontmatter.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                        </div>
+                    </a>
+                ))}
+            </div>
+
+            <!-- "See All" Link -->
+            <div class="flex justify-center mt-4">
+                <a href="/articles" class="font-mono text-sm text-zinc-400 uppercase tracking-widest hover:text-white transition-colors border-b border-transparent hover:border-white pb-1">
+                    See All
+                </a>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN: News Sidebar (4 of 12 columns) -->
+        <div class="lg:col-span-4 flex flex-col gap-6">
+            <h2 class="font-mono text-sm text-zinc-400 uppercase tracking-widest border-b border-white/5 pb-3">
+                News
+            </h2>
+            
+            <div class="flex flex-col gap-6 h-full">
+                {newsPosts.length > 0 ? (
+                    newsPosts.map((post) => (
+                        <a href={post.url} class="glass-card p-6 group flex flex-col flex-1 hover:border-blue-500/30 transition-all duration-300 justify-center">
+                            <h3 class="text-xl font-medium mb-2 text-white group-hover:text-blue-300 transition-colors line-clamp-2">
+                                {post.frontmatter.title}
+                            </h3>
+                            <p class="text-zinc-500 text-sm line-clamp-2 mb-4">
+                                {post.frontmatter.description}
+                            </p>
+                            <div class="font-mono text-xs text-zinc-600 mt-auto">
+                                {new Date(post.frontmatter.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                            </div>
+                        </a>
+                    ))
+                ) : (
+                    <div class="glass-card p-6 text-center text-zinc-500 italic flex-1 flex items-center justify-center">
+                        No recent news.
+                    </div>
+                )}
+            </div>
+        </div>
+
+    </div>
+</Layout>
