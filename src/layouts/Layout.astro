@@ -1,6 +1,11 @@
 ---
 import '../styles/global.css';
-const { title, description } = Astro.props;
+const { title, description, image } = Astro.props;
+
+const defaultTitle = '0xKeep Blog | The Trustless Liquidity Locker';
+const pageTitle = title ? `${title} | 0xKeep Blog` : defaultTitle;
+const pageDesc = description || "The official blog for 0xKeep Protocol.";
+const ogImage = image || "https://0x-keep.xyz/img/og-web.jpg"; 
 ---
 
 <!DOCTYPE html>
@@ -9,8 +14,22 @@ const { title, description } = Astro.props;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{title ? `${title} | 0xKeep Blog` : '0xKeep Blog | The Trustless Liquidity Locker'}</title>
-    <meta name="description" content={description || "The official blog for 0xKeep Protocol."} />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDesc} />
+    
+    <!-- Open Graph / Facebook / Discord -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDesc} />
+    <meta property="og:image" content={ogImage} />
+
+    <!-- Twitter / X -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={pageTitle} />
+    <meta property="twitter:description" content={pageDesc} />
+    <meta property="twitter:image" content={ogImage} />
     
     <link rel="icon" type="image/x-icon" href="/icon.svg">
     
@@ -28,7 +47,7 @@ const { title, description } = Astro.props;
     <div class="orb orb-plasma"></div>
 
     <!-- Navigation Layer -->
-    <nav class="fixed top-0 left-0 w-full z-50 bg-[#FFFFFF]/5 backdrop-blur-xl border-b border-white/10 py-4 px-6 md:px-12 flex justify-between items-center">
+    <nav class="fixed top-0 left-0 w-full z-50 bg-[#030305]/5 backdrop-blur-xl border-b border-white/10 py-4 px-6 md:px-12 flex justify-between items-center">
         <!-- Logo -->
         <a href="/" class="flex items-center gap-3 group">
             <svg class="logo-glow w-8 h-8" viewBox="0 0 275 275" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -37,8 +56,8 @@ const { title, description } = Astro.props;
             <span class="font-chakra font-bold text-xl tracking-wider group-hover:text-purple-400 transition-colors">0xKeep Blog</span>
         </a>
         
-        <!-- Desktop Nav Links (Hidden on Mobile) -->
-        <div class="hidden md:flex gap-8 items-center text-zinc-400 font-mono text-xs uppercase tracking-widest">
+        <!-- Desktop Nav Links (Hidden on Tablets and Mobile: using lg:flex instead of md:flex) -->
+        <div class="hidden lg:flex gap-8 items-center text-zinc-400 font-mono text-xs uppercase tracking-widest">
             <a href="/tags/news" class="hover:text-white transition">News</a>
             <a href="/tags/security" class="hover:text-white transition">Security</a>
             <a href="/tags/research" class="hover:text-white transition">Research</a>
@@ -52,7 +71,6 @@ const { title, description } = Astro.props;
                 </button>
                 
                 <div class="absolute top-full pt-6 left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 w-56 z-50">
-                    <!-- CHANGED: Native Tailwind classes for the dropdown background -->
                     <div class="flex flex-col p-2 bg-[#030305]/95 backdrop-blur-xl shadow-2xl border border-white/10 rounded-xl">
                         <a href="/tags/projects" class="px-4 py-3 hover:bg-white/10 rounded-lg text-zinc-300 hover:text-white transition font-mono text-xs uppercase tracking-widest">Projects</a>
                         <a href="/tags/guides" class="px-4 py-3 hover:bg-white/10 rounded-lg text-zinc-300 hover:text-white transition font-mono text-xs uppercase tracking-widest">Guides</a>
@@ -64,15 +82,15 @@ const { title, description } = Astro.props;
             </div>
         </div>
 
-        <!-- Launch App Button (Hidden on Mobile) -->
-        <div class="hidden md:block">
+        <!-- Launch App Button (Hidden on Tablets and Mobile: using lg:block instead of md:block) -->
+        <div class="hidden lg:block">
             <a href="https://app.0x-keep.xyz" target="_blank" class="btn-primary group">
                 <span class="btn-inner">Launch App</span>
             </a>
         </div>
 
-        <!-- Mobile Menu Hamburger Button -->
-        <button id="mobile-menu-btn" class="md:hidden p-2 text-zinc-400 hover:text-white transition focus:outline-none z-50">
+        <!-- Mobile Menu Hamburger Button (Shown on Tablets and Mobile: using lg:hidden instead of md:hidden) -->
+        <button id="mobile-menu-btn" class="lg:hidden p-2 text-zinc-400 hover:text-white transition focus:outline-none z-50">
             <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
@@ -82,8 +100,8 @@ const { title, description } = Astro.props;
         </button>
     </nav>
 
-    <!-- Mobile Menu Overlay (Hidden on Desktop) -->
-    <div id="mobile-menu" class="fixed inset-0 z-40 bg-[#030305]/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 md:hidden overflow-y-auto pt-24 px-6 pb-8 flex flex-col">
+    <!-- Mobile Menu Overlay (Hidden on Desktop: using lg:hidden instead of md:hidden) -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-[#030305]/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 lg:hidden overflow-y-auto pt-24 px-6 pb-8 flex flex-col">
         <div class="flex flex-col gap-6 font-mono text-sm uppercase tracking-widest text-zinc-400 mt-4">
             <a href="/tags/news" class="hover:text-white transition">News</a>
             <a href="/tags/security" class="hover:text-white transition">Security</a>
@@ -122,9 +140,9 @@ const { title, description } = Astro.props;
 
         <!-- Footer Navigation -->
         <div class="flex flex-wrap justify-center gap-6 items-center text-zinc-400 font-mono text-xs uppercase tracking-widest">
-            <a href="https://docs.0x-keep.xyz" class="hover:text-white transition">Docs</a>
-            <a href="https://0x-keep.xyz/terms" class="hover:text-white transition">Terms</a>
-            <a href="https://0x-keep.xyz/privacy" class="hover:text-white transition">Privacy</a>
+            <a href="https://0x-keep.xyz/docs.html" target="_blank" class="hover:text-white transition">Docs</a>
+            <a href="https://0x-keep.xyz/terms.html" target="_blank" class="hover:text-white transition">Terms</a>
+            <a href="https://0x-keep.xyz/privacy.html" target="_blank" class="hover:text-white transition">Privacy</a>
             <a href="https://0x-keep.xyz" target="_blank" class="hover:text-white transition">Main Site</a>
         </div>
 

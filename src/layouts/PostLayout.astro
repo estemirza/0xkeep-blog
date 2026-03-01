@@ -12,10 +12,10 @@ const date = new Date(frontmatter.date).toLocaleDateString('en-US', {
 });
 ---
 
-<Layout title={frontmatter.title} description={frontmatter.description}>
+<Layout title={frontmatter.title} description={frontmatter.description} image={frontmatter.image}>
     
     <!-- Top Header section of the blog post -->
-    <header class="text-center mb-12 fade-in-up">
+    <header class="text-center mb-10 fade-in-up">
         <div class="flex justify-center gap-3 mb-6">
             {frontmatter.tags && frontmatter.tags.map((tag: string) => (
                 <span class="font-mono text-xs text-purple-400 uppercase tracking-widest border border-purple-500/20 rounded-full px-3 py-1 bg-purple-500/10 backdrop-blur-md">
@@ -31,9 +31,20 @@ const date = new Date(frontmatter.date).toLocaleDateString('en-US', {
         </p>
     </header>
 
+    <!-- The 1500x500 Hero Banner Image -->
+    {frontmatter.image && (
+        <div class="w-full max-w-[1500px] mx-auto mb-12 fade-in-up delay-100">
+            <img 
+                src={frontmatter.image} 
+                alt={frontmatter.title} 
+                class="w-full aspect-[3/1] object-cover rounded-2xl border border-white/10 shadow-2xl"
+            />
+        </div>
+    )}
+
     <!-- The actual Markdown Content -->
-    <article class="glass-card p-8 md:p-12 fade-in-up delay-100 max-w-3xl mx-auto">
-        <!-- The 'prose' classes come from the typography plugin we just installed! -->
+    <article class="glass-card p-8 md:p-12 fade-in-up delay-200 max-w-3xl mx-auto">
+        <!-- The 'prose' classes format your markdown text -->
         <div class="prose prose-invert prose-purple max-w-none 
                     prose-headings:font-light prose-headings:tracking-tight 
                     prose-a:text-blue-400 hover:prose-a:text-blue-300 
@@ -43,7 +54,8 @@ const date = new Date(frontmatter.date).toLocaleDateString('en-US', {
         </div>
     </article>
 
-    <div class="text-center mt-12 fade-in-up delay-200">
+    <!-- Back to Home Button -->
+    <div class="text-center mt-12 fade-in-up delay-300">
         <a href="/" class="text-zinc-400 hover:text-white font-mono text-sm uppercase tracking-widest transition-colors flex items-center justify-center gap-2">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
             Back to Home

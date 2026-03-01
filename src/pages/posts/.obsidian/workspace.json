@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "4546a11b7ffc95ea",
+        "id": "bc7a0cad7996ce5b",
         "type": "tabs",
         "children": [
           {
-            "id": "c2f9e4643fd97b0f",
+            "id": "cca43957ba16edc9",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "news-double-defi-blow.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "news-double-defi-blow"
+              "title": "New tab"
             }
           }
         ]
@@ -78,7 +74,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "ec9886736b898bb6",
@@ -180,17 +176,36 @@
       "bases:Create new base": false
     }
   },
-  "active": "2197555010bd5eff",
+  "active": "cca43957ba16edc9",
   "lastOpenFiles": [
-    "news-defi-under-regulatory-microscope.md",
-    "news-major-blockchain-upgrade.md",
-    "how-token-locking-protects-investors.md",
-    "what-is-token-vesting.md",
-    "liquidity-lock-vs-vesting-vs-timelock.md",
-    "news-double-defi-blow.md",
-    "news",
-    "Feb Updates.md",
-    "My first post.md",
-    "my-first-post.md"
+    "what-are-lp-tokens-and-why-locking-them-signals-commitment.md",
+    "news-why-verification-at-deployment-beats-post-launch-monitoring.md",
+    "the-difference-between-audited-and-trustless.md",
+    "news-the-case-for-protocol-level-security.md",
+    "the-true-cost-of-locking-millions-in-liquidity-across-protocols.md",
+    "news-liquidity-locks-first-line-of-defense.md",
+    "how-to-set-up-cliff-testing-for-your-dao-contributors.md",
+    "news-cliff-vs-linear-vesting.md",
+    "linear-vs-cliff-vesting.md",
+    "news-cross-chain-infrastructure-and-the-authentication-gap.md",
+    "how-upgradeability-became-attack-vector-paid-network.md",
+    "news-what-the-gyd-exploit-reveals-about-governance-level-risk.md",
+    "why-supply-taxation-is-a-misaligned-incentive-model.md",
+    "news-the-custody-problem-in-yield-vaults.md",
+    "how-to-lock-liquidity-on-optimism.md",
+    "news-why-token-design-flaws-are-a-liquidity-lock-problem.md",
+    "what-is-a-rug-pull-definition.md",
+    "news-seven-hacks-january-2026.md",
+    "admin-keys-silent-vulnerability.md",
+    "news-holdstation-takeover-malicious-ide.md",
+    "supply-a-founders-cost-comparison.md",
+    "news-pancakeswap-v2-exploit-january-2026.md",
+    "how-to-lock-liquidity-on-arbitrum.md",
+    "news-the-truebit-exploit.md",
+    "what-is-a-liquidity-lock-and-why-does-it-exist.md",
+    "news-2025-state-sponsored-theft-data.md",
+    "Untitled.canvas",
+    "Untitled.base",
+    "news"
   ]
 }
