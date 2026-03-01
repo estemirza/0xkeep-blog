@@ -11,10 +11,14 @@
             "id": "cca43957ba16edc9",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "owasp-added-upgradeability-to-top-10-smart-contract.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "owasp-added-upgradeability-to-top-10-smart-contract"
             }
           }
         ]
@@ -178,6 +182,8 @@
   },
   "active": "cca43957ba16edc9",
   "lastOpenFiles": [
+    "linear-vesting-explained-configuration-for-founders.md",
+    "owasp-added-upgradeability-to-top-10-smart-contract.md",
     "what-are-lp-tokens-and-why-locking-them-signals-commitment.md",
     "news-why-verification-at-deployment-beats-post-launch-monitoring.md",
     "the-difference-between-audited-and-trustless.md",
@@ -202,8 +208,6 @@
     "news-pancakeswap-v2-exploit-january-2026.md",
     "how-to-lock-liquidity-on-arbitrum.md",
     "news-the-truebit-exploit.md",
-    "what-is-a-liquidity-lock-and-why-does-it-exist.md",
-    "news-2025-state-sponsored-theft-data.md",
     "Untitled.canvas",
     "Untitled.base",
     "news"
