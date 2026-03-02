@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Analytics from '@vercel/analytics/astro';
 const { title, description, image } = Astro.props;
 
 const defaultTitle = '0xKeep Blog | The Trustless Liquidity Locker';
@@ -37,6 +38,8 @@ const ogImage = image || "https://0x-keep.xyz/img/og-web.jpg";
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <Analytics />
 </head>
 
 <body class="antialiased selection:bg-purple-500/30 selection:text-white">
