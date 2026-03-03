@@ -1,103 +1,69 @@
 ---
 layout: ../../layouts/PostLayout.astro
-title: "The February 2026 Incident Report: What $23.63M in Losses Has in Common"
+title: Crypto Hacks Hit a 12-Month Low in February. Here's What the Data Actually Says.
 date: 2026-03-03
 tags:
   - News
   - Security
   - Cases
-description: February 2026 saw $23.63 million lost across 12 incidents. Oracle manipulation, access control failures, bridge exploits, and a confirmed rug pull. A breakdown of what the data reveals — and what it demands from protocol design.
+description: PeckShield recorded $26.5M in crypto losses across 15 incidents in February 2026 — the lowest monthly figure since March 2025. The numbers reflect real progress. They also reveal where the residual risk still lives.
 image: https://image2url.com/r2/default/images/1772352090906-84694f6a-34f5-4bba-a773-b711250409e8.jpg
 ---
-February 2026 closed with $23.63 million lost across 12 reported security incidents. The categories are familiar: oracle manipulation, access control failures, bridge exploits, and at least one confirmed rug pull. The names change each month. The vulnerability classes do not.
+The numbers from February are worth examining carefully — not to declare victory, but to understand precisely what improved, and what didn't.
 
-This piece examines what February's incident data reveals about the structural failure modes recurring across the ecosystem — and what protocol architecture can do to eliminate them.
+According to PeckShield, the crypto ecosystem recorded **$26.5 million in total losses across 15 hacking incidents** in February 2026. That is the lowest monthly figure since March 2025. Month-over-month, it represents a 69.2% decline from January's $86.01 million. Year-over-year, the contrast is extreme: February 2025 saw $1.5 billion in losses, inflated primarily by the $1.4 billion Bybit drain.
 
----
-
-## The Numbers
-
-**Total losses:** $23.63M  
-**Reported incidents:** 12  
-**Primary categories:** Oracle manipulation, access control failures, bridge exploits, insider withdrawal
-
-The aggregate figure is notable not for its size — monthly losses have exceeded nine figures in prior cycles — but for its composition. Technically driven exploits continue to dominate the total. Oracle manipulation and access control failures account for a disproportionate share of capital lost, while rug pulls, though directionally damaging to user confidence, represent a comparatively contained financial impact in this month's data.
-
-That distribution matters. It tells us something about where the industry's unsolved problems actually live.
+Remove that single outlier and the structural comparison is less dramatic — but the directional signal is still real. The industry is getting harder to exploit at scale.
 
 ---
 
-## Oracle Manipulation: Persistent and Preventable
+## What the Data Shows
 
-Oracle manipulation remains one of the most consistently exploited vectors in DeFi. The mechanism is well-documented: an attacker manipulates the price feed a protocol relies on for valuation — typically through flash loans or thin liquidity on the reference market — and uses the resulting distorted price to extract value against the protocol's logic.
+Five incidents accounted for over 98% of February's total losses. The largest was YieldBlox.finance at approximately $10 million, followed by a bridge exploit on the IoTeX network at $8.8 million. Cross Curve lost around $3 million, FOOM CASH $2.26 million, and Moonwell approximately $1.8 million.
 
-The exploits recur because the fix is non-trivial. Time-weighted average prices, multi-source aggregation, and circuit breakers all reduce exposure but introduce their own complexity and latency trade-offs. No single mitigation has proven definitive across all protocol designs.
+The pattern is consistent with what security researchers have observed across prior months: in the absence of a single catastrophic event, total losses compress significantly. The industry's loss statistics are not normally distributed — they are dominated by outlier incidents. February had none.
 
-What February's data reinforces is that oracle dependence is a persistent attack surface for any protocol whose security model requires accurate external price data. Protocols that eliminate this dependency by design — those whose logic does not rely on real-time price feeds — remove the vector entirely.
-
----
-
-## Access Control Failures: The Recurring Theme
-
-Access control failures are the most structurally significant category in this month's report, and in most months that precede it.
-
-The pattern is consistent: a privileged function exists — an admin role, an owner address, a multisig with upgrade authority — and either the access control logic is misconfigured, or the key controlling that function is compromised. In either case, the outcome is the same: an attacker or insider executes a function they should not be able to execute, and capital moves in a direction users did not authorize.
-
-This is not a novel attack class. It is not a zero-day. It is the same architectural decision — "we need a privileged function to manage this protocol" — producing the same outcome it has produced across dozens of incidents in preceding months.
-
-OWASP's recent inclusion of Proxy & Upgradeability Vulnerabilities as SC10 in the Smart Contract Top 10: 2026 formalizes what incident reports have been demonstrating empirically: admin key exposure and privileged function abuse are not edge cases. They are a predictable consequence of designs that require privilege to operate.
-
-Every access control failure in February's report represents a function that existed, was reachable, and was exploitable. The mitigation is not better key management alone — it is the deliberate elimination of privileged functions from the contract's interface.
+That is meaningful, but it is not the same as saying the attack surface has shrunk.
 
 ---
 
-## The Ploutos Incident: Access Control as a Feature, Not a Bug
+## What Actually Drove the Improvement
 
-On February 26, Ploutos Money was confirmed as a rug pull on Ethereum. Project insiders allegedly withdrew liquidity intentionally, leaving users unable to recover their assets.
+Security commentary tends to attribute declining hack figures to improved audit practices, AI-assisted threat detection, and more rigorous smart contract reviews. These are real factors. Audit coverage across DeFi has expanded materially over the past 18 months, and continuous monitoring tooling has improved.
 
-The Ploutos incident is not technically complex. It does not require a novel exploit or a misconfigured access control check. It requires exactly what was built: a liquidity position that the project team retained the ability to withdraw. The "vulnerability" was the design. The admin function worked exactly as implemented.
+But February's data reflects something more structural: **the five largest exploits all targeted protocols with mutable, upgradeable, or bridged architectures.** Bridge contracts, by design, require trusted relay mechanisms and upgradeable logic to coordinate cross-chain state. That architecture is a persistent attack surface regardless of audit quality.
 
-This is the category of risk that liquidity locking infrastructure exists to address. When a project locks its LP tokens in a contract with zero admin access — no withdrawal function, no owner override, no emergency pause — the Ploutos scenario becomes impossible by construction. The liquidity cannot be withdrawn because no function exists to withdraw it. There is no key to compromise, no insider who can execute the exit, no governance vote that can authorize the drain.
-
-The Ploutos rug pull is not an argument for better audits of rug pulls. It is an argument for removing the mechanism that makes rug pulls executable in the first place.
+This is the distinction that matters. An audit assesses code as it exists at review time. It cannot account for what happens to upgrade keys after deployment, how governance votes on implementation changes will be managed, or whether a bridge operator's infrastructure will be compromised months later. The Bybit breach that defined February 2025 was not a smart contract exploit — it was a failure of key management infrastructure around an upgradeable system.
 
 ---
 
-## What the Data Demands from Protocol Architecture
+## The Residual Risk Profile
 
-Read across the twelve incidents in February's report, a pattern emerges that no amount of audit rigor fully resolves: the losses trace back to functions that existed and were reachable. Oracle interfaces that could be manipulated. Admin roles that could be compromised. Withdrawal functions that could be invoked by insiders.
+The February data is encouraging. The residual risk profile has not fundamentally changed.
 
-Audits assess whether access controls are correctly implemented. They cannot assess whether the access control, correctly implemented, should exist at all.
+Billions of dollars remain locked in contracts governed by admin keys, proxy patterns, and upgrade mechanisms. Each of those represents an ongoing trust assumption: that the key holder will not be compromised, will not act adversarially, and will execute governance processes correctly under operational pressure.
 
-The architectural question February's data puts directly is this: which privileged functions in your protocol's design are actually necessary — and which exist because upgradeability, admin override, and emergency mechanisms were added as defaults rather than as deliberate, justified design choices?
+That assumption has been violated at scale, repeatedly, across protocols with strong reputations and substantial audit histories. The attack is not always against the contract itself — it is against the human and operational infrastructure surrounding the contract's mutable components.
 
-Every privileged function is a surface. Every surface is a potential incident entry point. The minimum-surface architecture is not one with well-secured admin keys. It is one where the admin function was never written.
-
----
-
-## 0xKeep's Threat Surface, Defined by Absence
-
-The 0xKeep V11 contract is deployed across Base, Arbitrum, and Optimism. Its architecture is defined as much by what it does not contain as by what it does.
-
-No admin withdrawal function. No owner override. No pause mechanism. No upgrade path. No proxy pattern. No implementation pointer. No privileged role capable of modifying locked positions after they are created.
-
-The access control failure category in February's incident report describes exploits against functions that exist in target contracts. Those functions do not exist in 0xKeep's contract. The insider withdrawal vector that defined the Ploutos incident requires a withdrawal function reachable by insiders. 0xKeep's contract contains no such function.
-
-This is not a security claim that requires trust. It is a property of the deployed bytecode, verifiable on-chain. The contract is what it is. It cannot be made into something else.
-
-Flat fee. Write once. Run forever.
+This is the class of vulnerability that OWASP formally catalogued as SC10 in its Smart Contract Top 10: 2026. Proxy and upgradeability vulnerabilities are now recognized as a top-tier systemic risk, not an edge case.
 
 ---
 
-## Closing Note
+## The Architectural Answer
 
-Twelve incidents. $23.63 million. The categories in February's report will appear again in March's. Oracle manipulation, access control failures, and insider withdrawals are not anomalies in the current ecosystem — they are predictable outputs of design patterns that remain prevalent.
+The only way to permanently remove SC10-class risk from a protocol is to eliminate the upgrade surface at deployment.
 
-The data does not argue for better reactions to these incidents. It argues for protocol architectures that make the incidents structurally impossible.
+0xKeep's V11 contract contains no proxy pattern, no admin key, no implementation pointer, and no function capable of altering contract state after deployment. There is no upgrade mechanism to compromise because there is no upgrade mechanism. The February figures reinforce why this matters: in a month where bridge and upgradeable contract exploits still accounted for the majority of losses, protocols with static, immutable architectures were not part of the incident log.
+
+This is not a comparative marketing claim. It is a description of what "Write Once, Run Forever" means in practice, measured against real attack data.
 
 ---
 
-*Source: February 2026 Crypto Security Report — Cryip.co (March 3, 2026).*
+## What to Watch
+
+The trend is positive. February's $26.5 million is a meaningful data point in a multi-month pattern of declining large-scale exploits. Continued improvement will depend less on audit coverage — which is already high among established protocols — and more on structural decisions made at the architecture level: whether protocols choose to retain upgrade mechanisms, what governance controls surround those mechanisms, and whether the operational security around admin keys keeps pace with the adversarial environment.
+
+The best month for security in nearly a year is not the moment to relax architectural standards. It is the moment to examine which design decisions produced the outcome, and to apply them consistently going forward.
 
 ---
 
