@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "news-early-february-2026-incident-report.md",
+                "file": "why-predictable-costs-matter-for-project-budgeting.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "news-early-february-2026-incident-report"
+              "title": "why-predictable-costs-matter-for-project-budgeting"
             }
           }
         ]
@@ -182,6 +182,8 @@
   },
   "active": "c6c4d5685663eaaf",
   "lastOpenFiles": [
+    "news-february-2026-incident-report.md",
+    "why-predictable-costs-matter-for-project-budgeting.md",
     "news-early-february-2026-incident-report.md",
     "owasp-added-upgradeability-to-top-10-smart-contract.md",
     "Untitled.md",
@@ -206,8 +208,6 @@
     "news-seven-hacks-january-2026.md",
     "admin-keys-silent-vulnerability.md",
     "news-holdstation-takeover-malicious-ide.md",
-    "supply-a-founders-cost-comparison.md",
-    "news-pancakeswap-v2-exploit-january-2026.md",
     "Untitled.canvas",
     "Untitled.base",
     "news"
