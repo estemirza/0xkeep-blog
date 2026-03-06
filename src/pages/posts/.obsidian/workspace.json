@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "news-gov-published-a-seed-phrase.md",
+                "file": "the-difference-between-a-lock-and-a-vest.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "news-gov-published-a-seed-phrase"
+              "title": "the-difference-between-a-lock-and-a-vest"
             }
           }
         ]
@@ -183,6 +183,7 @@
   "active": "c58efa3b6a20768c",
   "lastOpenFiles": [
     "news-gov-published-a-seed-phrase.md",
+    "the-difference-between-a-lock-and-a-vest.md",
     "news-the-moonwell-oracle-lesson.md",
     "why-predictable-costs-matter-for-project-budgeting.md",
     "news-february-2026-incident-report.md",
@@ -207,7 +208,6 @@
     "how-to-lock-liquidity-on-optimism.md",
     "news-why-token-design-flaws-are-a-liquidity-lock-problem.md",
     "what-is-a-rug-pull-definition.md",
-    "news-seven-hacks-january-2026.md",
     "Untitled.canvas",
     "Untitled.base",
     "news"
