@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "14525093873e4af5",
+        "id": "48b1f44358efafcb",
         "type": "tabs",
         "children": [
           {
-            "id": "c58efa3b6a20768c",
+            "id": "d3f45636902100b0",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "the-difference-between-a-lock-and-a-vest.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "the-difference-between-a-lock-and-a-vest"
+              "title": "New tab"
             }
           }
         ]
@@ -180,10 +176,11 @@
       "bases:Create new base": false
     }
   },
-  "active": "c58efa3b6a20768c",
+  "active": "d3f45636902100b0",
   "lastOpenFiles": [
-    "news-gov-published-a-seed-phrase.md",
+    "news-328-million-dollars-reasons-to-verify-your-lock.md",
     "the-difference-between-a-lock-and-a-vest.md",
+    "news-gov-published-a-seed-phrase.md",
     "news-the-moonwell-oracle-lesson.md",
     "why-predictable-costs-matter-for-project-budgeting.md",
     "news-february-2026-incident-report.md",
@@ -207,7 +204,6 @@
     "news-the-custody-problem-in-yield-vaults.md",
     "how-to-lock-liquidity-on-optimism.md",
     "news-why-token-design-flaws-are-a-liquidity-lock-problem.md",
-    "what-is-a-rug-pull-definition.md",
     "Untitled.canvas",
     "Untitled.base",
     "news"
