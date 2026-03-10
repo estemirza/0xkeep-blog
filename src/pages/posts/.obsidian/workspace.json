@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "zero-admin-access-what-it-actually-means.md",
+                "file": "news-why-the-oldest-exploit-in-defi-is-still-winning.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "zero-admin-access-what-it-actually-means"
+              "title": "news-why-the-oldest-exploit-in-defi-is-still-winning"
             }
           }
         ]
@@ -182,8 +182,9 @@
   },
   "active": "d3f45636902100b0",
   "lastOpenFiles": [
-    "news-328-million-dollars-reasons-to-verify-your-lock.md",
     "zero-admin-access-what-it-actually-means.md",
+    "news-why-the-oldest-exploit-in-defi-is-still-winning.md",
+    "news-328-million-dollars-reasons-to-verify-your-lock.md",
     "the-difference-between-a-lock-and-a-vest.md",
     "news-gov-published-a-seed-phrase.md",
     "news-the-moonwell-oracle-lesson.md",
@@ -207,7 +208,6 @@
     "news-what-the-gyd-exploit-reveals-about-governance-level-risk.md",
     "why-supply-taxation-is-a-misaligned-incentive-model.md",
     "news-the-custody-problem-in-yield-vaults.md",
-    "how-to-lock-liquidity-on-optimism.md",
     "Untitled.canvas",
     "Untitled.base",
     "news"
