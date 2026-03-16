@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "b3af64bcefdbfb7a",
+        "id": "fd647a2f1e1efa5d",
         "type": "tabs",
         "children": [
           {
-            "id": "79f40124f670c604",
+            "id": "0c63bdd880fc4bb1",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "news-oracle-misconfiguration-at-curve.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "news-oracle-misconfiguration-at-curve"
+              "title": "New tab"
             }
           }
         ]
@@ -180,8 +176,9 @@
       "bases:Create new base": false
     }
   },
-  "active": "79f40124f670c604",
+  "active": "0c63bdd880fc4bb1",
   "lastOpenFiles": [
+    "how-reentrancy-attacks-work.md",
     "news-oracle-misconfiguration-at-curve.md",
     "how-to-use-embed-widget-on-your-landing-page.md",
     "why-safu-is-not-an-architecture.md",
@@ -207,7 +204,6 @@
     "news-cliff-vs-linear-vesting.md",
     "linear-vs-cliff-vesting.md",
     "news-cross-chain-infrastructure-and-the-authentication-gap.md",
-    "how-upgradeability-became-attack-vector-paid-network.md",
     "Untitled.canvas",
     "Untitled.base",
     "news"
