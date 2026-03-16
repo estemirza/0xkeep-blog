@@ -11,10 +11,14 @@
             "id": "79f40124f670c604",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "news-oracle-misconfiguration-at-curve.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "news-oracle-misconfiguration-at-curve"
             }
           }
         ]
@@ -178,6 +182,7 @@
   },
   "active": "79f40124f670c604",
   "lastOpenFiles": [
+    "news-oracle-misconfiguration-at-curve.md",
     "how-to-use-embed-widget-on-your-landing-page.md",
     "why-safu-is-not-an-architecture.md",
     "news-why-the-oldest-exploit-in-defi-is-still-winning.md",
@@ -203,7 +208,6 @@
     "linear-vs-cliff-vesting.md",
     "news-cross-chain-infrastructure-and-the-authentication-gap.md",
     "how-upgradeability-became-attack-vector-paid-network.md",
-    "news-what-the-gyd-exploit-reveals-about-governance-level-risk.md",
     "Untitled.canvas",
     "Untitled.base",
     "news"
