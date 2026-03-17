@@ -11,10 +11,14 @@
             "id": "0c63bdd880fc4bb1",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "news-venus-protocol-bad-debt.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "news-venus-protocol-bad-debt"
             }
           }
         ]
@@ -178,6 +182,7 @@
   },
   "active": "0c63bdd880fc4bb1",
   "lastOpenFiles": [
+    "news-venus-protocol-bad-debt.md",
     "how-reentrancy-attacks-work.md",
     "news-oracle-misconfiguration-at-curve.md",
     "how-to-use-embed-widget-on-your-landing-page.md",
@@ -203,7 +208,6 @@
     "how-to-set-up-cliff-testing-for-your-dao-contributors.md",
     "news-cliff-vs-linear-vesting.md",
     "linear-vs-cliff-vesting.md",
-    "news-cross-chain-infrastructure-and-the-authentication-gap.md",
     "Untitled.canvas",
     "Untitled.base",
     "news"
