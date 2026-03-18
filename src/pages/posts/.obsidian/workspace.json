@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "fd647a2f1e1efa5d",
+        "id": "abd112a21aa6438c",
         "type": "tabs",
         "children": [
           {
-            "id": "0c63bdd880fc4bb1",
+            "id": "05e7e95555f9b20a",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "news-venus-protocol-bad-debt.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "news-venus-protocol-bad-debt"
+              "title": "New tab"
             }
           }
         ]
@@ -180,8 +176,9 @@
       "bases:Create new base": false
     }
   },
-  "active": "0c63bdd880fc4bb1",
+  "active": "05e7e95555f9b20a",
   "lastOpenFiles": [
+    "what-to-include-in-your-projects-tokenomics-page.md",
     "news-venus-protocol-bad-debt.md",
     "how-reentrancy-attacks-work.md",
     "news-oracle-misconfiguration-at-curve.md",
@@ -207,7 +204,6 @@
     "news-liquidity-locks-first-line-of-defense.md",
     "how-to-set-up-cliff-testing-for-your-dao-contributors.md",
     "news-cliff-vs-linear-vesting.md",
-    "linear-vs-cliff-vesting.md",
     "Untitled.canvas",
     "Untitled.base",
     "news"
