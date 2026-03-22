@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "abd112a21aa6438c",
+        "id": "5ca83c0919939339",
         "type": "tabs",
         "children": [
           {
-            "id": "05e7e95555f9b20a",
+            "id": "64591b27a1722ace",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -176,8 +176,9 @@
       "bases:Create new base": false
     }
   },
-  "active": "05e7e95555f9b20a",
+  "active": "64591b27a1722ace",
   "lastOpenFiles": [
+    "news-usr-stablecoin-depegs-after-exploit.md",
     "what-to-include-in-your-projects-tokenomics-page.md",
     "news-venus-protocol-bad-debt.md",
     "how-reentrancy-attacks-work.md",
@@ -203,7 +204,6 @@
     "the-true-cost-of-locking-millions-in-liquidity-across-protocols.md",
     "news-liquidity-locks-first-line-of-defense.md",
     "how-to-set-up-cliff-testing-for-your-dao-contributors.md",
-    "news-cliff-vs-linear-vesting.md",
     "Untitled.canvas",
     "Untitled.base",
     "news"
