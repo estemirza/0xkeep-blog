@@ -30,8 +30,6 @@ Historically, evaluating these risks required expensive third-party audits. We b
 
 Integrated directly into the 0xKeep Dashboard, the Tokenomics Audit is a free, interactive diagnostic utility. 
 
-![[tokenomic audit.png]]
-
 **How it works:**
 1.  **Input Allocations:** Founders input their planned percentage distributions across five key categories: Initial Liquidity, Team & Founders, Private Investors, Community/Airdrop, and Treasury.
 2.  **Automated Analysis:** The tool runs a rules-based assessment against industry-standard risk vectors.

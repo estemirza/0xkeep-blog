@@ -11,10 +11,14 @@
             "id": "4aad6dfd3f82f039",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "update-feature-tokenomic-audit.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "update-feature-tokenomic-audit"
             }
           }
         ]
