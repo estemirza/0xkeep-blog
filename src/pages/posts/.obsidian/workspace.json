@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "news-dtrinity-puased-257k-lost-to-deposit-inflation-attack.md",
+                "file": "why-we-can-pause-the-contract-is-a-red-flag.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "news-dtrinity-puased-257k-lost-to-deposit-inflation-attack"
+              "title": "why-we-can-pause-the-contract-is-a-red-flag"
             }
           }
         ]
@@ -182,8 +182,9 @@
   },
   "active": "76ec994a89585de5",
   "lastOpenFiles": [
-    "what-is-cei-patterns-and-why-it-matters.md",
     "news-dtrinity-puased-257k-lost-to-deposit-inflation-attack.md",
+    "why-we-can-pause-the-contract-is-a-red-flag.md",
+    "what-is-cei-patterns-and-why-it-matters.md",
     "news-usr-stablecoin-depegs-after-exploit.md",
     "what-to-include-in-your-projects-tokenomics-page.md",
     "news-venus-protocol-bad-debt.md",
@@ -207,7 +208,6 @@
     "news-why-verification-at-deployment-beats-post-launch-monitoring.md",
     "the-difference-between-audited-and-trustless.md",
     "news-the-case-for-protocol-level-security.md",
-    "the-true-cost-of-locking-millions-in-liquidity-across-protocols.md",
     "Untitled.canvas",
     "Untitled.base",
     "news"
