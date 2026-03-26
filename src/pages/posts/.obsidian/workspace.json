@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "c52193015737eaa7",
+        "id": "d0709d69623ec427",
         "type": "tabs",
         "children": [
           {
-            "id": "76ec994a89585de5",
+            "id": "4aad6dfd3f82f039",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "why-we-can-pause-the-contract-is-a-red-flag.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "why-we-can-pause-the-contract-is-a-red-flag"
+              "title": "New tab"
             }
           }
         ]
@@ -180,10 +176,13 @@
       "bases:Create new base": false
     }
   },
-  "active": "76ec994a89585de5",
+  "active": "4aad6dfd3f82f039",
   "lastOpenFiles": [
-    "news-dtrinity-puased-257k-lost-to-deposit-inflation-attack.md",
+    "update-feature-tokenomic-audit.md",
+    "img/tokenomic audit.png",
+    "img",
     "why-we-can-pause-the-contract-is-a-red-flag.md",
+    "news-dtrinity-puased-257k-lost-to-deposit-inflation-attack.md",
     "what-is-cei-patterns-and-why-it-matters.md",
     "news-usr-stablecoin-depegs-after-exploit.md",
     "what-to-include-in-your-projects-tokenomics-page.md",
@@ -206,8 +205,6 @@
     "linear-vesting-explained-configuration-for-founders.md",
     "what-are-lp-tokens-and-why-locking-them-signals-commitment.md",
     "news-why-verification-at-deployment-beats-post-launch-monitoring.md",
-    "the-difference-between-audited-and-trustless.md",
-    "news-the-case-for-protocol-level-security.md",
     "Untitled.canvas",
     "Untitled.base",
     "news"
