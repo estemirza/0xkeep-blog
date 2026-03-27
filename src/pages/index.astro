@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-// 1. Grab all Markdown files
+// 1. Grab all Markdown files (If you used sub-folders, make sure this is './posts/**/*.md')
 const allPosts = await Astro.glob('./posts/*.md');
 
 // 2. Sort them by date (Newest first)
@@ -11,10 +11,9 @@ const sortedPosts = allPosts.sort((a, b) => {
 
 // 3. Extract the "News" posts for the right sidebar (Max 3)
 const newsPosts = sortedPosts.filter(post => post.frontmatter.tags && post.frontmatter.tags.includes('News')).slice(0, 3);
-const newsPostUrls = newsPosts.map(post => post.url);
 
-// 4. Extract the "Recent" posts (excluding the ones already showing in News)
-const recentPosts = sortedPosts.filter(post => !newsPostUrls.includes(post.url));
+// 4. Extract the "Recent" posts by EXCLUDING ALL posts tagged "News"
+const recentPosts = sortedPosts.filter(post => !(post.frontmatter.tags && post.frontmatter.tags.includes('News')));
 
 // 5. Separate the 1 big featured post, and the 3 smaller sub-posts
 const featuredPost = recentPosts[0];
