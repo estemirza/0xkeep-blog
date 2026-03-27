@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "update-feature-tokenomic-audit.md",
+                "file": "news-the-governance-attack-as-security-failure.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "update-feature-tokenomic-audit"
+              "title": "news-the-governance-attack-as-security-failure"
             }
           }
         ]
@@ -182,6 +182,8 @@
   },
   "active": "4aad6dfd3f82f039",
   "lastOpenFiles": [
+    "news-the-balancer-labs-shutdown.md",
+    "news-the-governance-attack-as-security-failure.md",
     "update-feature-tokenomic-audit.md",
     "img/tokenomic audit.png",
     "img",
@@ -208,7 +210,6 @@
     "Untitled.md",
     "linear-vesting-explained-configuration-for-founders.md",
     "what-are-lp-tokens-and-why-locking-them-signals-commitment.md",
-    "news-why-verification-at-deployment-beats-post-launch-monitoring.md",
     "Untitled.canvas",
     "Untitled.base",
     "news"
