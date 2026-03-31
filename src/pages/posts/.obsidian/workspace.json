@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "news-the-governance-attack-as-security-failure.md",
+                "file": "why-0xkeep-charges-a-flat-fee.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "news-the-governance-attack-as-security-failure"
+              "title": "why-0xkeep-charges-a-flat-fee"
             }
           }
         ]
@@ -182,8 +182,9 @@
   },
   "active": "4aad6dfd3f82f039",
   "lastOpenFiles": [
-    "news-the-balancer-labs-shutdown.md",
     "news-the-governance-attack-as-security-failure.md",
+    "why-0xkeep-charges-a-flat-fee.md",
+    "news-the-balancer-labs-shutdown.md",
     "update-feature-tokenomic-audit.md",
     "img/tokenomic audit.png",
     "img",
@@ -209,7 +210,6 @@
     "owasp-added-upgradeability-to-top-10-smart-contract.md",
     "Untitled.md",
     "linear-vesting-explained-configuration-for-founders.md",
-    "what-are-lp-tokens-and-why-locking-them-signals-commitment.md",
     "Untitled.canvas",
     "Untitled.base",
     "news"
