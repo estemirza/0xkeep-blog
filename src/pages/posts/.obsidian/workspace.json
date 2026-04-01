@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "why-0xkeep-charges-a-flat-fee.md",
+                "file": "news-q1-2026.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "why-0xkeep-charges-a-flat-fee"
+              "title": "news-q1-2026"
             }
           }
         ]
@@ -182,8 +182,9 @@
   },
   "active": "4aad6dfd3f82f039",
   "lastOpenFiles": [
-    "news-the-governance-attack-as-security-failure.md",
     "why-0xkeep-charges-a-flat-fee.md",
+    "news-q1-2026.md",
+    "news-the-governance-attack-as-security-failure.md",
     "news-the-balancer-labs-shutdown.md",
     "update-feature-tokenomic-audit.md",
     "img/tokenomic audit.png",
@@ -209,7 +210,6 @@
     "news-early-february-2026-incident-report.md",
     "owasp-added-upgradeability-to-top-10-smart-contract.md",
     "Untitled.md",
-    "linear-vesting-explained-configuration-for-founders.md",
     "Untitled.canvas",
     "Untitled.base",
     "news"
