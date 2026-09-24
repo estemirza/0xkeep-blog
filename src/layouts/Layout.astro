@@ -6,7 +6,8 @@ const { title, description, image, article } = Astro.props;
 const defaultTitle = '0xKeep Blog | The Trustless Liquidity Locker';
 const pageTitle = title ? `${title} | 0xKeep Blog` : defaultTitle;
 const pageDesc = description || "The official blog for 0xKeep Protocol.";
-const ogImage = image || "https://0x-keep.xyz/img/og-web.jpg";
+// Social cards need an absolute URL; local banners live in /images/banners/
+const ogImage = image ? new URL(image, Astro.site).href : "https://0x-keep.xyz/img/og-web.jpg";
 
 // One canonical URL per page (absolute, built from `site` in astro.config.mjs)
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
