@@ -13,9 +13,9 @@ image: https://image2url.com/r2/default/images/1772352067796-8e5718c7-ad96-413b-
 Before proceeding, confirm the following:
 
 - A Web3 wallet (MetaMask, Rabby, or equivalent) connected to the **Base network**
-- A minimum of **0.03 ETH on Base** to cover the flat protocol fee
+- A small amount of **ETH on Base** for gas. Locks and vesting on Base are free (0 ETH protocol fee) during the launch period
 - The **contract address** of the LP token or treasury token you intend to lock
-- The **wallet address** of the designated lock beneficiary (can be your own)
+- The wallet that should own the lock. Whoever creates a lock owns it; ownership can be transferred later from the lock certificate page
 
 No token approvals are required prior to starting. The 0xKeep interface handles authorization inline during the lock flow.
 
@@ -38,8 +38,8 @@ Submitting on the wrong network will result in a failed transaction.
 
 From the main dashboard, select the **Lock** tab. You will be presented with two product options:
 
-- **Standard Liquidity Lock** — for LP tokens (Uniswap v2/v3, SushiSwap) or project treasury tokens. Full lock until a specified date. _Fee: 0.03 ETH._
-- **Linear Vesting** — for team, advisor, or investor allocations with optional cliff periods. _Fee: 0.02 ETH._
+- **Standard Liquidity Lock** — for ERC-20 LP tokens (Uniswap v2, SushiSwap, Aerodrome classic pools) or project treasury tokens. NFT positions (Uniswap v3/v4) are not supported. Full lock until a specified date. _Fee on Base: 0 ETH._
+- **Linear Vesting** — for team, advisor, or investor allocations with optional cliff periods. _Fee on Base: 0 ETH._
 
 For this walkthrough, select **Standard Liquidity Lock**.
 
@@ -87,8 +87,8 @@ Once approval is confirmed, the **Lock** button activates. Click it.
 Your wallet will present a transaction summary:
 
 - **To:** 0xKeep V11 Contract (Base)
-- **Value:** 0.03 ETH (flat protocol fee)
-- **Data:** Encoded lock parameters (token address, amount, unlock timestamp, beneficiary)
+- **Value:** 0 ETH (Base has no protocol fee during the launch period)
+- **Data:** Encoded lock parameters (token address, amount, unlock timestamp)
 
 Review the parameters, then sign and broadcast the transaction.
 
@@ -148,7 +148,7 @@ The 0xKeep V11 contract is immutable. After your transaction confirms, the follo
 - The unlock date cannot be shortened
 - No administrative function exists to pause, override, or modify the lock
 
-When the unlock date arrives, the designated beneficiary wallet may call the `withdraw()` function to retrieve the tokens. No further action is required from the project team.
+When the unlock date arrives, the lock owner can withdraw the tokens from the certificate page (the contract function is `withdrawLock`). No further action is required from the project team.
 
 ---
 
