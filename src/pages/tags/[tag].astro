@@ -38,7 +38,7 @@ const { posts, tagName } = Astro.props;
 const sortedPosts = posts.sort((a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf());
 ---
 
-<Layout title={`${tagName} Archives | 0xKeep Blog`}>
+<Layout title={`${tagName} Archives`} description={`0xKeep articles tagged ${tagName}: liquidity locks, token vesting, and Web3 security.`}>
     
     <!-- Category Header Section -->
     <div class="text-center mb-20 fade-in-up">

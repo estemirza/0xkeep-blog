@@ -10,9 +10,27 @@ const date = new Date(frontmatter.date).toLocaleDateString('en-US', {
     month: 'long',
     day: 'numeric'
 });
+
+// Related posts: share the most tags with this one, newest first, max 3.
+// Internal links help readers keep going and help search engines crawl the archive.
+const strip = (p: string) => p.replace(/\/$/, '');
+const allPosts: any[] = Object.values(import.meta.glob('../pages/posts/*.md', { eager: true }));
+const myTags: string[] = frontmatter.tags || [];
+const related = allPosts
+    .filter((p) => strip(p.url) !== strip(Astro.url.pathname))
+    .map((p) => ({ p, shared: (p.frontmatter.tags || []).filter((t: string) => myTags.includes(t)).length }))
+    .filter((x) => x.shared > 0)
+    .sort((a, b) => b.shared - a.shared || new Date(b.p.frontmatter.date).valueOf() - new Date(a.p.frontmatter.date).valueOf())
+    .slice(0, 3)
+    .map((x) => x.p);
 ---
 
-<Layout title={frontmatter.title} description={frontmatter.description} image={frontmatter.image}>
+<Layout
+    title={frontmatter.title}
+    description={frontmatter.description}
+    image={frontmatter.image}
+    article={{ published: new Date(frontmatter.date), tags: myTags }}
+>
     
     <!-- Top Header section of the blog post -->
     <header class="text-center mb-10 fade-in-up">
@@ -53,6 +71,29 @@ const date = new Date(frontmatter.date).toLocaleDateString('en-US', {
             <slot />
         </div>
     </article>
+
+    <!-- Verify-it-yourself box: links to the product and the transparency page -->
+    <aside class="max-w-3xl mx-auto mt-8 glass-card p-6 md:p-8 fade-in-up delay-300">
+        <p class="text-zinc-300 leading-relaxed">
+            0xKeep is an immutable liquidity locker on Base, Arbitrum, and Optimism. No admin keys, and not yet audited by a third party.
+            <a href="https://0x-keep.xyz/security.html" class="text-blue-400 hover:text-blue-300">See the contract, the tests, and the known limitations</a>,
+            or <a href="https://app.0x-keep.xyz/create" class="text-blue-400 hover:text-blue-300">create a lock</a>.
+        </p>
+    </aside>
+
+    {related.length > 0 && (
+        <section class="max-w-3xl mx-auto mt-12 fade-in-up delay-300">
+            <h2 class="font-mono text-sm text-zinc-400 uppercase tracking-widest border-b border-white/5 pb-3 mb-6">Related reading</h2>
+            <ul class="space-y-4">
+                {related.map((p) => (
+                    <li>
+                        <a href={`${strip(p.url)}/`} class="text-white hover:text-purple-300 transition-colors">{p.frontmatter.title}</a>
+                        <p class="text-sm text-zinc-500 mt-1">{p.frontmatter.description}</p>
+                    </li>
+                ))}
+            </ul>
+        </section>
+    )}
 
     <!-- Back to Home Button -->
     <div class="text-center mt-12 fade-in-up delay-300">
