@@ -75,4 +75,39 @@ done
 echo
 echo "✓ Published. Live in about 2 minutes at:"
 for f in $drafts; do echo "  https://blog.0x-keep.xyz/posts/${${f:t}:r}/"; done
+
+# ── Hand each new post to X (free: no API). Rewrites have no x_post and are skipped. ──
+xposts=()
+for f in $drafts; do
+  slug=${${f:t}:r}
+  post="src/pages/posts/$slug.md"
+  [[ -n "$(node scripts/x-post.mjs text "$post" 2>/dev/null)" ]] && xposts+=("$post")
+done
+
+if (( ${#xposts} > 0 )); then
+  echo
+  echo "Waiting for the post to go live before opening X (so the link preview works)…"
+  for post in $xposts; do
+    url="https://blog.0x-keep.xyz/posts/${${post:t}:r}/"
+    for i in {1..18}; do   # up to ~3 minutes
+      [[ "$(curl -s -o /dev/null -w '%{http_code}' "$url")" == "200" ]] && break
+      sleep 10
+    done
+  done
+
+  # Clipboard: all X texts (one per post, separated by a line), as a backup to the X window.
+  clip=""
+  for post in $xposts; do
+    clip+="$(node scripts/x-post.mjs text "$post")"$'\n\n———\n\n'
+  done
+  printf "%s" "${clip%$'\n\n———\n\n'}" | pbcopy
+
+  # Open X with the text already filled in, one tab per post. You just click Post.
+  for post in $xposts; do
+    open "$(node scripts/x-post.mjs intent "$post")"
+  done
+
+  echo "✓ X is open with the post filled in (also copied to your clipboard)."
+  echo "  Check it, then click Post on X."
+fi
 finish 0
