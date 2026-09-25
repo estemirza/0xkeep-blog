@@ -21,11 +21,24 @@ export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
 [[ -s "$HOME/.nvm/nvm.sh" ]] && source "$HOME/.nvm/nvm.sh"
 command -v npm >/dev/null || { echo "✗ npm not found. Open Terminal, run 'which npm', and send the result to Claude."; finish 1; }
 
+status() { node scripts/drafts-status.mjs 2>/dev/null; }   # refreshes the routine page's "drafts waiting" box
+
 drafts=(drafts/*.md(N))
 if (( ${#drafts} == 0 )); then
+  status
   echo "No drafts waiting in blog/drafts/. Nothing to do."
   finish 0
 fi
+
+echo "Drafts ready to publish:"
+for f in $drafts; do echo "  • ${${f:t}:r}"; done
+echo
+read -k1 "?Publish now? (y/n) " answer; echo
+if [[ "$answer" != [yY] ]]; then
+  echo "Cancelled. Nothing published."
+  finish 0
+fi
+echo
 
 echo "Getting the latest version of the blog…"
 git checkout -q main || { echo "✗ Could not switch to main."; finish 1; }
@@ -71,6 +84,7 @@ for f in $drafts; do
   slug=${${f:t}:r}
   rm -f "$f" "drafts/$slug.jpg"
 done
+status
 
 echo
 echo "✓ Published. Live in about 2 minutes at:"
